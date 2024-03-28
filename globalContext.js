@@ -3,8 +3,12 @@ import * as React from 'react'
 import * as Location from 'expo-location';
 
 const globalState = {
-    username: "",
-    userType: ""
+    username: "",       // username - User's online name
+    userType: "",       // userType - donor or foodbank
+    refresh: false,     // refresh - indicates whether to check database again
+
+    // Cache for Firebase Database
+    foodListings: []   // foodListings - Stores food listings
 };
 
 const GlobalContext = React.createContext(globalState)
