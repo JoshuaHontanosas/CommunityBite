@@ -4,7 +4,10 @@ import * as Location from 'expo-location';
 
 const globalState = {
     username: "",
-    userType: ""
+    userType: "",
+    messages: [],
+    getFoodListings: true,  // Change to true later
+    foodListingsList: []
 };
 
 const GlobalContext = React.createContext(globalState)

@@ -50,13 +50,14 @@ export async function getFoodListings(){
   const querySnapshot = await getDocs(collection(db, "foodListings"));  // Get QuerySnapshot of 'foodListings'
     querySnapshot.forEach((doc) =>{ // Print each food listing to console.
       // Store document data into local variables (can add more later)
-      phoneNumber = doc.data().phonenumber
-      fullName = doc.data().fullname
-      latitude = doc.data().latitude
-      longitude = doc.data().longitude
+      //phoneNumber = doc.data().phonenumber
+      latitudeData = parseFloat(doc.data().latitude)
+      longitudeData = parseFloat(doc.data().longitude)
+      addressData = doc.data().address
+      fullNameData = doc.data().fullname
       
       // Add entry to the food listing array
-      foodListingArray.push([latitude, longitude, fullName, phoneNumber])
+      foodListingArray.push({latitude: latitudeData, longitude: longitudeData, address: addressData, name: fullNameData})
     });
     // Display listings
     foodListingArray.forEach(element => console.log(element))
